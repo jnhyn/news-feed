@@ -4,11 +4,11 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
-import SearchIcon from '@mui/icons-material/Search';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import Link from 'next/link';
 import { useThemeStore } from '../store/useThemeStore';
+import SearchBar from './SearchBar';
 
 export default function Header() {
   const darkMode = useThemeStore((state) => state.darkMode);
@@ -28,10 +28,8 @@ export default function Header() {
           <Link href='/search'>Search</Link>&nbsp;|&nbsp;
           <Link href='/settings'>Settings</Link>
         </nav>
-        <div>
-          <IconButton color='inherit' component={Link} href='/search'>
-            <SearchIcon />
-          </IconButton>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <SearchBar />
           <IconButton
             color='inherit'
             onClick={toggleDarkMode}
